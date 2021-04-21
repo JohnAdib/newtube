@@ -22,4 +22,26 @@ function createUrl_id($_id)
 	$url .= '?id='. $_id;
   return $url;
 }
+
+
+function createUrl_tag($_tag)
+{
+  $url = getUrl_wo_params();
+  $url .= '?tag='. $_tag;
+  return $url;
+}
+
+function create_slug($_string)
+{
+  // clear tag
+  $myTag = trim($_string);
+  $myTag = trim($myTag, '"');
+  $myTag = trim($myTag, "'");
+  $myTag = trim($myTag, ";");
+
+  $myTagSlug = strtolower($myTag);
+  $myTagSlug = str_replace(' ', '-', $myTagSlug);
+
+  return $myTagSlug;
+}
 ?>

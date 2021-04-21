@@ -3,9 +3,9 @@
   * personal tune creator
   * v 1.0
   */
+ require_once 'tools.php';
  require_once 'tags_pre_defined.php';
  require_once 'analyzeMedia.php';
- require_once 'tools.php';
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
       </div>
 
       <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-<?php if($_GET && $_GET["id"]) {?>
+<?php if($_GET && isset($_GET["id"])) {?>
         <a href="<?php echo getUrl_wo_params(); ?>" class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Back</a>
 <?php }?>
       </div>
@@ -49,17 +49,33 @@
 
 
 <?php
- if($_GET && $_GET["id"])
+ if($_GET)
  {
-  if(isset($MOVIES[$_GET["id"]]))
+  if(isset($_GET["id"]))
   {
-   $thisVid = $MOVIES[$_GET["id"]];
-   // we have id, show player
-   require_once 'player.php';
+    if(isset($MOVIES[$_GET["id"]]))
+    {
+     $thisVid = $MOVIES[$_GET["id"]];
+     // we have id, show player
+     require_once 'player.php';
+    }
+    else
+    {
+     echo "This video is not exist!";
+    }
   }
-  else
+  elseif(isset($_GET["tag"]))
   {
-   echo "This Video is not exist!";
+    if(isset($TAGS[$_GET["tag"]]))
+    {
+     $thisTag = $TAGS[$_GET["tag"]];
+     // we have id, show player
+     require_once 'page_tag.php';
+    }
+    else
+    {
+     echo "This tag is not used yet!";
+    }
   }
  }
  else{

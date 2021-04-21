@@ -86,7 +86,6 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 
 		$tagTxt = substr($tagTxt, 1, -1);
 		$tagsList = explode(',', $tagTxt);
-		$thisMovie['tags'] = $tagsList;
 
 		// remove tag from name
 		$name = trim(substr($name, 0, -(strlen($name) - $tagStart)));
@@ -97,21 +96,14 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 	{
 		array_push($tagsList, $tag1);
 	}
+	// save tags for this video
+	$thisMovie['tags'] = $tagsList;
 
 	foreach ($tagsList as $myTag)
 	{
-		// clear tag
-		$myTag = trim($myTag);
-		$myTag = trim($myTag, '"');
-		$myTag = trim($myTag, "'");
-		$myTag = trim($myTag, ";");
-
-		$myTagSlug = strtolower($myTag);
-		$myTagSlug = str_replace(' ', '-', $myTagSlug);
-		$TAGS[$myTagSlug][] = $id;
-
+		$mySlug = create_slug($myTag);
+		$TAGS[$mySlug][] = $id;
 	}
-
 
 	$thisMovie['title'] = $name;
 	// add to array
