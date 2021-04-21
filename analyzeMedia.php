@@ -1,6 +1,7 @@
 <?php
 $movies = [];
-foreach (glob("media/*.mp4") as $_filePath)
+
+foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 {
 	$id = md5($_filePath);
 	$filename = substr(basename($_filePath), 0, -4);
