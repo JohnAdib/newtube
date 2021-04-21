@@ -7,7 +7,7 @@
 <?php if($thisVid['path']) {?>
 	    poster="<?php echo $thisVid['poster'] ?>"
 <?php }?>
-	    data-setup='{}'>
+	    data-setup='{"fluid": true}'>
 	  <source src="<?php echo $thisVid['path'] ?>" type="video/mp4"></source>
 	  <p class="vjs-no-js">
 	    To view this video please enable JavaScript, and consider upgrading to a
@@ -15,12 +15,12 @@
 	  </p>
 	</video>
 
-	<div class="grid grid-cols-6 gap-2">
+	<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-4">
 <?php
 $maxRand = count($movies);
-if($maxRand > 6)
+if($maxRand > 12)
 {
-	$maxRand = 6;
+	$maxRand = 12;
 }
 $random_Vid = shuffle ($movies);
 for ($i=0; $i < $maxRand; $i++)
@@ -31,7 +31,7 @@ for ($i=0; $i < $maxRand; $i++)
 		continue;
 	}
 	echo '    ';
-	echo '<div class="mb-2">';
+	echo '<div class="mb-1 md:mb-2">';
 	echo '<a href="'. createUrl_id($recommend['id']) .'">';
 	echo '<img class="rounded-lg" alt="cover" src="'. $recommend['poster'] .'">';
 	echo '</a>';

@@ -59,6 +59,18 @@ foreach (glob("media/*.mp4") as $_filePath)
 		$thisMovie['quality'] = intval(substr($qualityTxt, 1, -1));
 		$name = trim(substr($name, 0, -6));
 	}
+	elseif(substr($qualityTxt, -6) === '_1080p')
+	{
+		// we detect quality
+		$thisMovie['quality'] = intval(substr($qualityTxt, -5, -1));
+		$name = trim(substr($name, 0, -6));
+	}
+	elseif(substr($qualityTxt, -5) === '_720p')
+	{
+		// we detect quality
+		$thisMovie['quality'] = intval(substr($qualityTxt, -4, -1));
+		$name = trim(substr($name, 0, -5));
+	}
 
 	// detect tag
 	$tagStart = strpos($name, '{');
@@ -78,7 +90,6 @@ foreach (glob("media/*.mp4") as $_filePath)
 	}
 
 	$thisMovie['title'] = $name;
-
 	// add to array
 	$movies[$id] = $thisMovie;
 }
