@@ -1,6 +1,6 @@
 	<video
 	    id="newtube-player"
-	    class="video-js rounded-lg w-full	mb-2"
+	    class="video-js rounded-lg w-full	mb-4"
 	    controls
 	    autoplay
 	    preload="auto"
@@ -16,16 +16,19 @@
 	</video>
 
 <?php if($thisVid['tags']) { ?>
-	<div class="grid grid-cols-3 sm:grid-cols-7 gap-2 md:gap-2">
+
+	<ul class="grid grid-flow-col auto-cols-min gap-2 mb-4">
 <?php
 	foreach ($thisVid['tags'] as $key => $myTag)
 	{
-		echo '<a href="'. createUrl_tag($myTag) .'">';
-		echo $myTag;
+		echo '<li class="flex rounded-lg">';
+		echo '<a class="p-2 lg:px-2 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="'. createUrl_tag($myTag) .'">';
+		echo slug_show($myTag);
 		echo '</a>';
+		echo '</li>';
 	}
 ?>
-	</div>
+	</ul>
 <?php }?>
 
 	<div class="grid grid-cols-3 sm:grid-cols-7 gap-2 md:gap-2">

@@ -44,4 +44,13 @@ function create_slug($_string)
 
   return $myTagSlug;
 }
+
+function slug_show($_slug)
+{
+  $myTag = str_replace('-', ' ', $_slug);
+  $myTag = ucwords($myTag);
+
+  return $myTag;
+}
+
 ?>
