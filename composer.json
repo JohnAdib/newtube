@@ -1,0 +1,6 @@
+{
+    "name": "mrjavadadib/newtube",
+    "require": {
+        "norkunas/youtube-dl-php": "dev-master"
+    }
+}
