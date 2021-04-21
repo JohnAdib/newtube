@@ -94,4 +94,7 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 	// add to array
 	$movies[$id] = $thisMovie;
 }
+
+file_put_contents("src/all.data.json",json_encode($movies, JSON_PRETTY_PRINT));
+
 ?>

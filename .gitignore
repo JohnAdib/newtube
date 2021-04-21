@@ -25,4 +25,5 @@ yarn.lock
 *.sublime-*
 
 /media
+*.data.json
 
