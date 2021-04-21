@@ -1,6 +1,6 @@
 	<video
-	    id="my-player"
-	    class="video-js rounded-lg w-full	mb-2"
+	    id="newtube-player"
+	    class="video-js rounded-lg w-full	mb-4"
 	    controls
 	    autoplay
 	    preload="auto"
@@ -15,24 +15,40 @@
 	  </p>
 	</video>
 
-	<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-4">
+<?php if($thisVid['tags']) { ?>
+
+	<ul class="grid grid-flow-col auto-cols-min gap-2 mb-4">
 <?php
-$maxRand = count($movies);
+	foreach ($thisVid['tags'] as $key => $myTag)
+	{
+		echo '<li class="flex rounded-lg">';
+		echo '<a class="p-2 lg:px-2 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 min-w-max" href="'. createUrl_tag($myTag) .'">';
+		echo slug_show($myTag);
+		echo '</a>';
+		echo '</li>';
+	}
+?>
+	</ul>
+<?php }?>
+
+	<div class="grid grid-cols-3 sm:grid-cols-7 gap-2 md:gap-2">
+<?php
+$maxRand = count($MOVIES);
 if($maxRand > 12)
 {
 	$maxRand = 12;
 }
-$random_Vid = shuffle ($movies);
+$random_Vid = shuffle ($MOVIES);
 for ($i=0; $i < $maxRand; $i++)
 {
-	$recommend = array_pop($movies);
+	$recommend = array_pop($MOVIES);
 	if($_GET["id"] === $recommend['id'])
 	{
 		continue;
 	}
 	echo '    ';
 	echo '<div class="mb-1 md:mb-2">';
-	echo '<a href="'. createUrl_id($recommend['id']) .'">';
+	echo '<a href="'. createUrl_id($recommend['id']) .'" id=recommendNext'. $i. '>';
 	echo '<img class="rounded-lg" alt="cover" src="'. $recommend['poster'] .'">';
 	echo '</a>';
 	echo '</div>';

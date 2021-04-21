@@ -23,4 +23,6 @@ cache/*.json
 .idea
 yarn.lock
 *.sublime-*
+/media
+*.data.json
 /vendor/

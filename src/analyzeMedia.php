@@ -1,6 +1,8 @@
 <?php
-$movies = [];
-foreach (glob("media/*.mp4") as $_filePath)
+$MOVIES = [];
+$TAGS   = [];
+
+foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 {
 	$id = md5($_filePath);
 	$filename = substr(basename($_filePath), 0, -4);
@@ -73,6 +75,7 @@ foreach (glob("media/*.mp4") as $_filePath)
 	}
 
 	// detect tag
+	$tagsList = [];
 	$tagStart = strpos($name, '{');
 	$tagEnd = strpos($name, '}');
 
@@ -83,14 +86,33 @@ foreach (glob("media/*.mp4") as $_filePath)
 
 		$tagTxt = substr($tagTxt, 1, -1);
 		$tagsList = explode(',', $tagTxt);
-		$thisMovie['tags'] = $tagsList;
 
 		// remove tag from name
-		$name = trim(substr($name, 0, strlen($name) - $tagStart));
+		$name = trim(substr($name, 0, -(strlen($name) - $tagStart)));
 	}
+
+	$tag1 = check_pre_define_tags($name);
+	if($tag1)
+	{
+		array_push($tagsList, $tag1);
+	}
+
+	foreach ($tagsList as $key => $myTag)
+	{
+		$mySlug = create_slug($myTag);
+		$tagsList[$key] = $mySlug;
+		$TAGS[$mySlug][] = $id;
+	}
+
+	// save tags for this video
+	$thisMovie['tags'] = $tagsList;
 
 	$thisMovie['title'] = $name;
 	// add to array
-	$movies[$id] = $thisMovie;
+	$MOVIES[$id] = $thisMovie;
 }
+
+file_put_contents("data/all.data.json",json_encode($MOVIES, JSON_PRETTY_PRINT));
+file_put_contents("data/tags.data.json",json_encode($TAGS, JSON_PRETTY_PRINT));
+
 ?>
