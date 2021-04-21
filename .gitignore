@@ -22,4 +22,5 @@ package-lock.json
 cache/*.json
 .idea
 yarn.lock
+media/
 *.sublime-*
