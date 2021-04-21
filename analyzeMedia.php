@@ -9,6 +9,7 @@ foreach (glob("media/*.mp4") as $_filePath)
 		'poster'  => null,
 		'name'    => $filename,
 		'size'    => round(filesize($_filePath) / 1024 / 1024, 1). 'MB',
+		'id'      => md5($_filePath),
 		'imdb'    => null,
 		'year'    => null,
 		'title'   => null,
