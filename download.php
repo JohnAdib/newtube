@@ -33,7 +33,7 @@ function download_link(string $_link): void
 
     $collection = $yt->download(
         Options::create()
-            ->downloadPath(__DIR__ . "/media")
+            ->downloadPath(__DIR__ . "/media/download")
             ->mergeOutputFormat("mp4")
             ->writeThumbnail(true)
             ->url($_link)
