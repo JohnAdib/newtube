@@ -22,7 +22,7 @@
 	foreach ($thisVid['tags'] as $key => $myTag)
 	{
 		echo '<li class="flex rounded-lg">';
-		echo '<a class="p-2 lg:px-2 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="'. createUrl_tag($myTag) .'">';
+		echo '<a class="p-2 lg:px-2 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 min-w-max" href="'. createUrl_tag($myTag) .'">';
 		echo slug_show($myTag);
 		echo '</a>';
 		echo '</li>';

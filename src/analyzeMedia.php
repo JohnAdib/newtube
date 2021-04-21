@@ -96,14 +96,16 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 	{
 		array_push($tagsList, $tag1);
 	}
-	// save tags for this video
-	$thisMovie['tags'] = $tagsList;
 
-	foreach ($tagsList as $myTag)
+	foreach ($tagsList as $key => $myTag)
 	{
 		$mySlug = create_slug($myTag);
+		$tagsList[$key] = $mySlug;
 		$TAGS[$mySlug][] = $id;
 	}
+
+	// save tags for this video
+	$thisMovie['tags'] = $tagsList;
 
 	$thisMovie['title'] = $name;
 	// add to array
