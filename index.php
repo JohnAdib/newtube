@@ -10,7 +10,8 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-	<title>PersonalTube</title>
+	<title>NewTube</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="css/tailwind-2.1.1.min.css" rel="stylesheet">
 	<link href="css/video-js-7.12.1.min.css" rel="stylesheet">
@@ -23,7 +24,7 @@
     <div class="container px-4 mx-auto md:flex md:items-center">
 
       <div class="flex justify-between items-center">
-        <a href="<?php echo getUrl_wo_params(); ?>" class="font-bold text-xl text-indigo-600">PesonalTube</a>
+        <a href="<?php echo getUrl_wo_params(); ?>" class="font-bold text-xl text-indigo-600">NewTube</a>
         <a href="https://MrAdib.com/personalTube" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">About</a>
       </div>
 
