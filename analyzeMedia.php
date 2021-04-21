@@ -2,6 +2,7 @@
 $movies = [];
 foreach (glob("media/*.mp4") as $_filePath)
 {
+	$id = md5($_filePath);
 	$filename = substr(basename($_filePath), 0, -4);
 	$thisMovie =
 	[
@@ -9,7 +10,7 @@ foreach (glob("media/*.mp4") as $_filePath)
 		'poster'  => null,
 		'name'    => $filename,
 		'size'    => round(filesize($_filePath) / 1024 / 1024, 1). 'MB',
-		'id'      => md5($_filePath),
+		'id'      => $id,
 		'imdb'    => null,
 		'year'    => null,
 		'title'   => null,
@@ -79,6 +80,6 @@ foreach (glob("media/*.mp4") as $_filePath)
 	$thisMovie['title'] = $name;
 
 	// add to array
-	$movies[$filename] = $thisMovie;
+	$movies[$id] = $thisMovie;
 }
 ?>

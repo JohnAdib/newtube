@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-	<title>BabyTube Play</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="css/tailwind-2.1.1.min.css" rel="stylesheet">
-	<link href="css/video-js-7.12.1.min.css" rel="stylesheet">
-	<link href="css/video-js-city-1.0.1.min.css" rel="stylesheet">
-
-</head>
-<body class="bg-pink-300	">
-
-<div class="container mx-auto mt-4 mb-2">
 	<video
 	    id="my-player"
 	    class="video-js rounded-lg w-full	mb-2"
 	    controls
 	    autoplay
 	    preload="auto"
-	    poster="img/mov_rel_9225_452-m.jpg"
+<?php if($thisVid['path']) {?>
+	    poster="<?php echo $thisVid['poster'] ?>"
+<?php }?>
 	    data-setup='{}'>
-	  <source src="video/sample.mp4" type="video/mp4"></source>
+	  <source src="<?php echo $thisVid['path'] ?>" type="video/mp4"></source>
 	  <p class="vjs-no-js">
 	    To view this video please enable JavaScript, and consider upgrading to a
 	    web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -47,13 +35,3 @@
 	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9611_433-m.jpg">
 	  </div>
 	</div>
-</div>
-
-<script src="js/video-7.10.2.min.js"></script>
-<script>
-	window.HELP_IMPROVE_VIDEOJS = false;
-	videojs.options.autoplay = true;
-</script>
-
-</body>
-</html>
