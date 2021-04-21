@@ -1,5 +1,5 @@
 	<video
-	    id="my-player"
+	    id="newtube-player"
 	    class="video-js rounded-lg w-full	mb-2"
 	    controls
 	    autoplay
@@ -32,7 +32,7 @@ for ($i=0; $i < $maxRand; $i++)
 	}
 	echo '    ';
 	echo '<div class="mb-1 md:mb-2">';
-	echo '<a href="'. createUrl_id($recommend['id']) .'">';
+	echo '<a href="'. createUrl_id($recommend['id']) .'" id=recommendNext'. $i. '>';
 	echo '<img class="rounded-lg" alt="cover" src="'. $recommend['poster'] .'">';
 	echo '</a>';
 	echo '</div>';

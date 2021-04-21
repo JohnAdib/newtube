@@ -66,9 +66,6 @@
 ?>
  </div>
 <script src="js/video-7.10.2.min.js"></script>
-<script>
- window.HELP_IMPROVE_VIDEOJS = false;
- videojs.options.autoplay = true;
-</script>
+<script src="js/video-runner.js"></script>
 </body>
 </html>
