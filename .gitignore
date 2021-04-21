@@ -24,7 +24,5 @@ cache/*.json
 yarn.lock
 *.sublime-*
 
+/media
 
-media/*.mp4
-/media/*.jpg
-/media/*.png
