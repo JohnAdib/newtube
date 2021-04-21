@@ -1,15 +1,19 @@
  window.HELP_IMPROVE_VIDEOJS = false;
  videojs.options.autoplay = true;
 
-let player = videojs('newtube-player');
-
-player.on('ended', function()
+if (document.getElementById("newtube-player"))
 {
+	let player = videojs('newtube-player');
 
-	var NextVid = document.getElementById("recommendNext0");
-	if(NextVid && NextVid.href)
+	player.on('ended', function()
 	{
-		location.replace(NextVid.href);
-	}
 
-});
+		var NextVid = document.getElementById("recommendNext0");
+		if(NextVid && NextVid.href)
+		{
+			location.replace(NextVid.href);
+		}
+
+	});
+
+}

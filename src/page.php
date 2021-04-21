@@ -29,7 +29,7 @@
  <link href="css/video-js-city-1.0.1.min.css" rel="stylesheet">
 </head>
 <body class="bg-pink-50">
- <div class="container mx-auto px-2 mt-4 mb-4">
+ <div class="container mx-auto lg:px-20 px-2 mt-4 mb-4">
 
   <nav class="bg-white py-2 md:py-4 mb-4 rounded-lg">
     <div class="container px-4 mx-auto md:flex md:items-center">
@@ -49,6 +49,7 @@
 
 
 <?php
+$SHOW_PLAYER = null;
  if($_GET)
  {
   if(isset($_GET["id"]))
@@ -56,6 +57,7 @@
     if(isset($MOVIES[$_GET["id"]]))
     {
      $thisVid = $MOVIES[$_GET["id"]];
+     $SHOW_PLAYER = true;
      // we have id, show player
      require_once 'page_id.php';
     }
@@ -83,7 +85,9 @@
  }
 ?>
  </div>
+<?php if($SHOW_PLAYER) { ?>
 <script src="js/video-7.10.2.min.js"></script>
 <script src="js/video-runner.js"></script>
+<?php } ?>
 </body>
 </html>
