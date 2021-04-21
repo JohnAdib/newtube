@@ -15,7 +15,7 @@
 	  </p>
 	</video>
 
-	<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-4">
+	<div class="grid grid-cols-3 sm:grid-cols-7 gap-2 md:gap-2">
 <?php
 $maxRand = count($movies);
 if($maxRand > 12)
