@@ -91,10 +91,11 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 		$name = trim(substr($name, 0, -(strlen($name) - $tagStart)));
 	}
 
-	$tag1 = check_pre_define_tags($name);
-	if($tag1)
+	$pre_defined_tags = check_pre_define_tags($name);
+	// var_dump($pre_defined_tags);
+	if(is_array($pre_defined_tags))
 	{
-		array_push($tagsList, $tag1);
+		$tagsList = array_merge($tagsList, $pre_defined_tags);
 	}
 
 	foreach ($tagsList as $key => $myTag)

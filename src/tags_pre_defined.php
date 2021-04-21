@@ -12,16 +12,18 @@ function check_pre_define_tags($_string)
 		'Song',
 	];
 
+	$detected_tags = [];
+
 	foreach ($pre_define_tags as $tag)
 	{
-
 	  if(strpos($_string, $tag) !== false)
 	  {
-	    return $tag;
+	  	array_push($detected_tags, $tag);
 	  }
 	}
 
-  return false;
+
+  return $detected_tags;
 }
 
 ?>
