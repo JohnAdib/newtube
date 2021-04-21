@@ -57,7 +57,7 @@
     {
      $thisVid = $MOVIES[$_GET["id"]];
      // we have id, show player
-     require_once 'player.php';
+     require_once 'page_id.php';
     }
     else
     {
@@ -79,7 +79,7 @@
   }
  }
  else{
-  require_once 'homepage.php';
+  require_once 'page_homepage.php';
  }
 ?>
  </div>
