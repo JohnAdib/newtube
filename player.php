@@ -16,22 +16,27 @@
 	</video>
 
 	<div class="grid grid-cols-6 gap-2">
-	  <div class="mb-2">
-	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9225_452-m.jpg">
-	  </div>
-	  <div class="mb-2">
-	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9600_696-m.jpg">
-	  </div>
-	  <div class="mb-2">
-	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9611_433-m.jpg">
-	  </div>
-	  <div class="mb-2">
-	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9541_360-m.jpg">
-	  </div>
-	  <div class="mb-2">
-	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9600_696-m.jpg">
-	  </div>
-	  <div class="mb-2">
-	  	<img class="rounded-lg" alt="cover" src="img/mov_rel_9611_433-m.jpg">
-	  </div>
+<?php
+$maxRand = count($movies);
+if($maxRand > 6)
+{
+	$maxRand = 6;
+}
+$random_Vid = shuffle ($movies);
+for ($i=0; $i < $maxRand; $i++)
+{
+	$recommend = array_pop($movies);
+	if($_GET["id"] === $recommend['id'])
+	{
+		continue;
+	}
+	echo '    ';
+	echo '<div class="mb-2">';
+	echo '<a href="'. createUrl_id($recommend['id']) .'">';
+	echo '<img class="rounded-lg" alt="cover" src="'. $recommend['poster'] .'">';
+	echo '</a>';
+	echo '</div>';
+}
+
+?>
 	</div>
