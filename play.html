@@ -16,6 +16,7 @@
 	    id="my-player"
 	    class="video-js rounded-lg w-full	mb-2"
 	    controls
+	    autoplay
 	    preload="auto"
 	    poster="img/mov_rel_9225_452-m.jpg"
 	    data-setup='{}'>
@@ -48,8 +49,11 @@
 	</div>
 </div>
 
-	<script src="js/video-7.10.2.min.js"></script>
-	<script>window.HELP_IMPROVE_VIDEOJS = false;</script>
+<script src="js/video-7.10.2.min.js"></script>
+<script>
+	window.HELP_IMPROVE_VIDEOJS = false;
+	videojs.options.autoplay = true;
+</script>
 
 </body>
 </html>
