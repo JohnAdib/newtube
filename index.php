@@ -1,21 +1,30 @@
 <?php
-	/**
-	 * personal tune creator
-	 * v 1.0
-	 */
-	require_once 'analyzeMedia.php';
-	require_once 'tools.php';
+ /**
+  * personal tune creator
+  * v 1.0
+  */
+ require_once 'analyzeMedia.php';
+ require_once 'tools.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-	<title>NewTube</title>
+ <meta charset="UTF-8" />
+ <title>NewTube</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="css/tailwind-2.1.1.min.css" rel="stylesheet">
-	<link href="css/video-js-7.12.1.min.css" rel="stylesheet">
-	<link href="css/video-js-city-1.0.1.min.css" rel="stylesheet">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="apple-touch-icon" sizes="180x180" href="<?php echo getUrl_wo_params(); ?>img/favicon/apple-touch-icon.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="<?php echo getUrl_wo_params(); ?>img/favicon/favicon-32x32.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="<?php echo getUrl_wo_params(); ?>img/favicon/favicon-16x16.png">
+ <link rel="manifest" href="<?php echo getUrl_wo_params(); ?>site.webmanifest">
+ <link rel="mask-icon" href="<?php echo getUrl_wo_params(); ?>img/favicon/safari-pinned-tab.svg" color="#000000">
+ <meta name="msapplication-TileColor" content="#ffffff">
+ <meta name="msapplication-TileImage" content="<?php echo getUrl_wo_params(); ?>img/favicon/mstile-144x144.png">
+ <meta name="theme-color" content="#ffffff">
+
+ <link href="css/tailwind-2.1.1.min.css" rel="stylesheet">
+ <link href="css/video-js-7.12.1.min.css" rel="stylesheet">
+ <link href="css/video-js-city-1.0.1.min.css" rel="stylesheet">
 </head>
 <body class="bg-pink-50">
  <div class="container px-2 mx-auto mt-4 mb-4">
@@ -38,28 +47,28 @@
 
 
 <?php
-	if($_GET && $_GET["id"])
-	{
-		if(isset($movies[$_GET["id"]]))
-		{
-			$thisVid = $movies[$_GET["id"]];
-			// we have id, show player
-			require_once 'player.php';
-		}
-		else
-		{
-			echo "This Video is not exist!";
-		}
-	}
-	else{
-		require_once 'homepage.php';
-	}
+ if($_GET && $_GET["id"])
+ {
+  if(isset($movies[$_GET["id"]]))
+  {
+   $thisVid = $movies[$_GET["id"]];
+   // we have id, show player
+   require_once 'player.php';
+  }
+  else
+  {
+   echo "This Video is not exist!";
+  }
+ }
+ else{
+  require_once 'homepage.php';
+ }
 ?>
  </div>
 <script src="js/video-7.10.2.min.js"></script>
 <script>
-	window.HELP_IMPROVE_VIDEOJS = false;
-	videojs.options.autoplay = true;
+ window.HELP_IMPROVE_VIDEOJS = false;
+ videojs.options.autoplay = true;
 </script>
 </body>
 </html>

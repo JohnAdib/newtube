@@ -1,0 +1,22 @@
+{
+    "name": "NewTube",
+    "short_name": "NewTube",
+    "dir": "ltr",
+    "lang": "en-US",
+    "icons": [
+        {
+            "src": "img/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    //"start_url": "https://newtube.ir/?utm_campaign=pwa&utm_medium=standalone&utm_source=browser",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
