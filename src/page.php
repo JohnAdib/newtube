@@ -3,8 +3,10 @@
   * personal tune creator
   * v 1.0
   */
+ require_once 'tags_pre_defined.php';
  require_once 'analyzeMedia.php';
  require_once 'tools.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,9 +51,9 @@
 <?php
  if($_GET && $_GET["id"])
  {
-  if(isset($movies[$_GET["id"]]))
+  if(isset($MOVIES[$_GET["id"]]))
   {
-   $thisVid = $movies[$_GET["id"]];
+   $thisVid = $MOVIES[$_GET["id"]];
    // we have id, show player
    require_once 'player.php';
   }

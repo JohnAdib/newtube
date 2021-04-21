@@ -1,8 +1,8 @@
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-4">
 <?php
-if($movies)
+if($MOVIES)
 {
-	foreach ($movies as $key => $value)
+	foreach ($MOVIES as $key => $value)
 	{
 		echo '   ';
 		echo '<div class="mb-1 md:mb-2">';

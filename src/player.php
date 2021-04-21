@@ -17,15 +17,15 @@
 
 	<div class="grid grid-cols-3 sm:grid-cols-7 gap-2 md:gap-2">
 <?php
-$maxRand = count($movies);
+$maxRand = count($MOVIES);
 if($maxRand > 12)
 {
 	$maxRand = 12;
 }
-$random_Vid = shuffle ($movies);
+$random_Vid = shuffle ($MOVIES);
 for ($i=0; $i < $maxRand; $i++)
 {
-	$recommend = array_pop($movies);
+	$recommend = array_pop($MOVIES);
 	if($_GET["id"] === $recommend['id'])
 	{
 		continue;

@@ -1,0 +1,1 @@
+Offline data is stored inside this folder
