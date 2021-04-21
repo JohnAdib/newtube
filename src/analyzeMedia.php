@@ -25,9 +25,19 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 	{
 		$thisMovie['poster'] = substr($_filePath, 0, -3). 'jpg';
 	}
-	if(is_file(substr($_filePath, 0, -3). 'png'))
+	elseif(is_file(substr($_filePath, 0, -3). 'png'))
 	{
 		$thisMovie['poster'] = substr($_filePath, 0, -3). 'png';
+	}
+	elseif(is_file(substr($_filePath, 0, -3). 'webp'))
+	{
+		$thisMovie['poster'] = substr($_filePath, 0, -3). 'webp';
+	}
+	else
+	{
+		// without image
+		// $thisMovie['poster'] = 'https://picsum.photos/400/228';
+		$thisMovie['poster'] = 'img/default-169.png';
 	}
 
 	$name = $filename;
