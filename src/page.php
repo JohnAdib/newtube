@@ -36,7 +36,7 @@
 
       <div class="flex justify-between items-center">
         <a href="<?php echo getUrl_wo_params(); ?>" class="font-bold text-xl text-indigo-600">NewTube</a>
-        <a href="https://MrAdib.com/personalTube" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">About</a>
+        <a href="<?php echo getUrl_wo_params(); ?>?about" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">About</a>
       </div>
 
       <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
@@ -49,7 +49,7 @@
 
 
 <?php
-$SHOW_PLAYER = null;
+ $SHOW_PLAYER = null;
  if($_GET)
  {
   if(isset($_GET["id"]))
@@ -79,8 +79,17 @@ $SHOW_PLAYER = null;
      echo "This tag is not used yet!";
     }
   }
+  elseif(isset($_GET["about"]))
+  {
+    require_once 'page_about.php';
+  }
+  elseif(isset($_GET["add"]))
+  {
+    require_once 'page_about.php';
+  }
  }
- else{
+ else
+ {
   require_once 'page_homepage.php';
  }
 ?>
