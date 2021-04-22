@@ -5,24 +5,32 @@ require __DIR__ . "/vendor/autoload.php";
 use YoutubeDl\Options;
 use YoutubeDl\YoutubeDl;
 
-$arguments = getopt("l:");
+if(isset($_GET["import"]))
+{
 
-if (!isset($arguments["l"])) {
-    die("ERROR : there is no `-l LINK`");
 }
-if (!is_array($arguments["l"])) {
-    $arguments["l"] = [$arguments["l"]];
-}
-foreach ($arguments["l"] as $url) {
-    if (!filter_var($url, FILTER_VALIDATE_URL)) {
-        echo "`" . $url . "` is not a valid url \n";
-        continue;
+else
+{
+    $arguments = getopt("l:");
+
+    if (!isset($arguments["l"])) {
+        die("ERROR : there is no `-l LINK`");
     }
-    echo "downloading... \n";
-    download_link($url);
-    echo "\n";
+    if (!is_array($arguments["l"])) {
+        $arguments["l"] = [$arguments["l"]];
+    }
+    foreach ($arguments["l"] as $url) {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            echo "`" . $url . "` is not a valid url \n";
+            continue;
+        }
+        echo "downloading... \n";
+        download_link($url);
+        echo "\n";
+    }
+    die();
 }
-die();
+
 
 /**
  * https://github.com/norkunas/youtube-dl-php
