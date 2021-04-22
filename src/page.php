@@ -83,9 +83,9 @@
   {
     require_once 'page_about.php';
   }
-  elseif(isset($_GET["add"]))
+  elseif(isset($_GET["add"]) || isset($_GET["import"]))
   {
-    require_once 'page_about.php';
+    require_once 'page_import.php';
   }
  }
  else
