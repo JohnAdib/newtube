@@ -6,12 +6,14 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 {
 	$id = md5($_filePath);
 	$filename = substr(basename($_filePath), 0, -4);
+	$filesize = filesize($_filePath);
 	$thisMovie =
 	[
 		'path'    => $_filePath,
+		'audio'   => null,
 		'poster'  => null,
 		'name'    => $filename,
-		'size'    => round(filesize($_filePath) / 1024 / 1024, 1). 'MB',
+		'size'    => round($filesize / 1024 / 1024, 1). 'MB',
 		'id'      => $id,
 		'imdb'    => null,
 		'year'    => null,
@@ -19,6 +21,20 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 		'quality' => null,
 		'tags'    => [],
 	];
+
+	// probably problem on convert
+	if($filesize < 1024)
+	{
+		continue;
+	}
+
+	$file_predict_name = substr($_filePath, 0, -9);
+	$webm = glob($file_predict_name. "*.webm");
+	if(count($webm) === 1 && isset($webm[0]))
+	{
+		// we find audio file
+		$thisMovie['audio'] = $webm[0];
+	}
 
 	// find poster
 	if(is_file(substr($_filePath, 0, -3). 'jpg'))
@@ -35,9 +51,19 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 	}
 	else
 	{
-		// without image
-		// $thisMovie['poster'] = 'https://picsum.photos/400/228';
-		$thisMovie['poster'] = 'img/default-169.png';
+		$file_predict_name = substr($_filePath, 0, -9);
+		$webp = glob($file_predict_name. "*.webp");
+		if(count($webp) === 1 && isset($webp[0]))
+		{
+			// we find audio file
+			$thisMovie['poster'] = $webp[0];
+		}
+		else
+		{
+			// without image
+			// $thisMovie['poster'] = 'https://picsum.photos/400/228';
+			$thisMovie['poster'] = 'img/default-169.png';
+		}
 	}
 
 	$name = $filename;
