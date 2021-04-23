@@ -39,9 +39,7 @@ $SITE_DESC = 'Your Personal Youtube Kids. Have your own YouTube on your system';
  <meta content="<?php echo $SITE_DESC; ?>" property="og:description"/>
  <meta content="<?php echo getUrl_wo_params(); ?>img/newtube-cover-v1.jpg" property="og:image"/>
  <meta content="<?php echo getUrl_wo_params(); ?>/" property="og:url"/>
- <meta content="جیبرس" property="og:site_name"/>
- <meta content='fa' property='og:locale'/>
-
+ <meta content="<?php echo $SITE_TITLE; ?>" property="og:site_name"/>
 
  <link href="css/tailwind-2.1.1.min.css" rel="stylesheet">
  <link href="css/video-js-7.12.1.min.css" rel="stylesheet">
