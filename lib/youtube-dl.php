@@ -44,6 +44,7 @@ function download_link(string $_link): void
             ->preferFFmpeg(true)
             ->mergeOutputFormat("mp4")
             ->writeThumbnail(true)
+            ->writeDescription(true)
             ->url($_link)
     );
 
