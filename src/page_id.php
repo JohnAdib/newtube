@@ -31,12 +31,12 @@
 	</ul>
 <?php }?>
 
-	<div class="grid grid-cols-3 sm:grid-cols-7 gap-2 md:gap-2">
+	<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2">
 <?php
 $maxRand = count($MOVIES);
-if($maxRand > 12)
+if($maxRand > 6)
 {
-	$maxRand = 12;
+	$maxRand = 6;
 }
 $random_Vid = shuffle ($MOVIES);
 for ($i=0; $i < $maxRand; $i++)

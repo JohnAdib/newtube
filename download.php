@@ -37,6 +37,9 @@ else
  */
 function download_link(string $_link): void
 {
+    @ini_set('max_execution_time', '900'); //900 seconds = 15 minutes
+    @set_time_limit(900);
+
     $yt = new YoutubeDl();
 
     $collection = $yt->download(

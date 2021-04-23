@@ -29,7 +29,7 @@
  <link href="css/video-js-city-1.0.1.min.css" rel="stylesheet">
 </head>
 <body class="bg-pink-50">
- <div class="container mx-auto lg:px-20 px-2 mt-4 mb-4">
+ <div class="container mx-auto 2xl:px-48 xl:px-60 px-2 mt-4 mb-4">
 
   <nav class="bg-white py-2 md:py-4 mb-4 rounded-lg">
     <div class="container px-4 mx-auto md:flex md:items-center">
