@@ -53,4 +53,13 @@ function slug_show($_slug)
   return $myTag;
 }
 
+function allow_import()
+{
+  if(is_file('src/conf/import.disable.conf'))
+  {
+    return false;
+  }
+  return true;
+}
+
 ?>

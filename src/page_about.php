@@ -20,8 +20,14 @@
 		<li>قابلیت دسته‌بندی از پیش‌تعریف شده</li>
 		<li>قابلیت تعریف دسته‌بندی از طریق اسم فایل</li>
 		<li>پخش خودکار  ویدیوی بعدی پس از اتمام ویدیوی فعلی</li>
-		<li>امکان دانلود خودکار از یوتیوب با داشتن لینک ویدیو <a href="<?php echo getUrl_wo_params(); ?>?import" class="text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">اضافه کن</a></li>
+		<li>امکان دانلود خودکار از یوتیوب با داشتن لینک ویدیو </li>
 		<li>دسته‌بندی موضوعی فیلم‌ها</li>
 	</ul>
+
+	<?php if (allow_import()){ ?>
+		<div class="mt-5">
+			<a href="<?php echo getUrl_wo_params(); ?>?import" class="p-4 inline-block text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">ایمپورت ویدیو از یوتیوب</a>
+		</div>
+	<?php } ?>
 
 </article>

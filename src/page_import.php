@@ -1,3 +1,4 @@
+<?php if(allow_import()) {?>
 <div class="p-10">
 <?php if(isset($_GET["import"])  && $_GET["import"]) {?>
 	<p class="text-xl">Import from YouTube</p>
@@ -14,7 +15,7 @@
       download_link($_GET["import"]);
     }
 ?>
-
+<p><a href="<?php echo getUrl_wo_params(); ?>?import" class="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200 mt-5 inline-block">Import New Video</a></p>
 <?php } else {?>
   <p>Paste your YouTube video link</p>
   <form class="relative mt-2" method="get" action="<?php echo getUrl_wo_params() ?>">
@@ -29,3 +30,6 @@
   </form>
 <?php }?>
 </div>
+<?php } else {?>
+  <p>Import is disabled!</p>
+<?php }?>
