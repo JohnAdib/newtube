@@ -70,6 +70,7 @@ foreach (glob("media/{,*/,*/*/}*.mp4", GLOB_BRACE) as $_filePath)
 	// sample file name
 	// [3.7] 1987 Superman IV The Quest for Peace [1080]
 	// [8.1] 2003 Pirates of the Caribbean 1 - The Curse of the Black Pearl [720]
+	// [8.4] 2003 Sample 123 Title {tag1,tag2} [720]
 
 	// check imdb rank if exist
 	if(substr($name, 0, 1) === '[' && substr($name, 4, 2) === '] ')
