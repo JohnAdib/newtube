@@ -5,12 +5,8 @@ require __DIR__ . "/vendor/autoload.php";
 use YoutubeDl\Options;
 use YoutubeDl\YoutubeDl;
 
-if(isset($_GET["import"]))
-{
-
-}
-else
-{
+if (isset($_GET["import"])) {
+} else {
     $arguments = getopt("l:");
 
     if (!isset($arguments["l"])) {
@@ -31,13 +27,12 @@ else
     die();
 }
 
-
 /**
  * https://github.com/norkunas/youtube-dl-php
  */
 function download_link(string $_link): void
 {
-    @ini_set('max_execution_time', '900'); //900 seconds = 15 minutes
+    @ini_set("max_execution_time", "900"); //900 seconds = 15 minutes
     @set_time_limit(900);
 
     $yt = new YoutubeDl();
@@ -45,6 +40,7 @@ function download_link(string $_link): void
     $collection = $yt->download(
         Options::create()
             ->downloadPath(__DIR__ . "/../media/download")
+            ->format("bestvideo+bestaudio")
             ->mergeOutputFormat("mp4")
             ->writeThumbnail(true)
             ->url($_link)
