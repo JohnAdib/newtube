@@ -38,7 +38,7 @@ if($maxRand > 6)
 {
 	$maxRand = 6;
 }
-$random_Vid = shuffle ($MOVIES);
+shuffle($MOVIES);
 for ($i=0; $i < $maxRand; $i++)
 {
 	$recommend = array_pop($MOVIES);

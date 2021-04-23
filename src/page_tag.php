@@ -2,6 +2,7 @@
 <?php
 if($thisTag)
 {
+	shuffle($thisTag);
 	foreach ($thisTag as $key => $myVideoID)
 	{
 		if(isset($MOVIES[$myVideoID]))

@@ -2,6 +2,7 @@
 <?php
 if($MOVIES)
 {
+	shuffle($MOVIES);
 	foreach ($MOVIES as $key => $value)
 	{
 		echo '   ';
