@@ -10,6 +10,7 @@ if (document.getElementById("newtube-player"))
 		var seperateAudio = document.getElementById("newtube-audio");
 		if(seperateAudio)
 		{
+			seperateAudio.currentTime = player.currentTime();
 			seperateAudio.play();
 		}
 	});
