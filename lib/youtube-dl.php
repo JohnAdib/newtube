@@ -41,6 +41,7 @@ function download_link(string $_link): void
         Options::create()
             ->downloadPath(__DIR__ . "/../media/download")
             ->format("bestvideo+bestaudio")
+            ->preferFFmpeg(true)
             ->mergeOutputFormat("mp4")
             ->writeThumbnail(true)
             ->url($_link)
