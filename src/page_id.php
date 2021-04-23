@@ -1,12 +1,12 @@
+<?php if($thisVid['path']) {?>
 	<video
 	    id="newtube-player"
 	    class="video-js rounded-lg w-full	mb-4"
 	    controls
 	    autoplay
 	    preload="auto"
-<?php if($thisVid['path']) {?>
+	    mediagroup="newtube"
 	    poster="<?php echo $thisVid['poster'] ?>"
-<?php }?>
 	    data-setup='{"fluid": true}'>
 	  <source src="<?php echo $thisVid['path'] ?>" type="video/mp4"></source>
 	  <p class="vjs-no-js">
@@ -14,6 +14,12 @@
 	    web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
 	  </p>
 	</video>
+<?php if($thisVid['audio']) {?>
+  <audio id="newtube-audio" mediagroup="newtube">
+    <source src="<?php echo $thisVid['audio'] ?>" type="audio/webm">
+  </audio>
+<?php }?>
+<?php }?>
 
 <?php if($thisVid['tags']) { ?>
 
