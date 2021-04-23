@@ -16,9 +16,12 @@ function check_pre_define_tags($_string)
 		'Children',
 		'Nursery',
 		'Witch',
-		'MrBean',
+		'Bean',
 		'Rain',
 		'ABC',
+		'Cartoons',
+		'Pizza',
+		'Phonics',
 	];
 
 	$detected_tags = [];
