@@ -7,12 +7,15 @@
  require_once 'tags_pre_defined.php';
  require_once 'analyzeMedia.php';
 
+$SITE_TITLE = 'NewTube';
+$SITE_DESC = 'Your Personal Youtube Kids. Have your own YouTube on your system';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr" translate="no" prefix="og: http://ogp.me/ns#">
 <head>
  <meta charset="UTF-8" />
- <title>NewTube</title>
+ <title><?php echo $SITE_TITLE; ?></title>
+ <meta content="<?php echo $SITE_DESC; ?>" name="description"/>
 
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo getUrl_wo_params(); ?>img/favicon/apple-touch-icon.png">
@@ -23,6 +26,22 @@
  <meta name="msapplication-TileColor" content="#ffffff">
  <meta name="msapplication-TileImage" content="<?php echo getUrl_wo_params(); ?>img/favicon/mstile-144x144.png">
  <meta name="theme-color" content="#ffffff">
+
+ <meta content="<?php echo getUrl_wo_params(); ?>" name="site:root"/>
+ <meta content="summary_large_image" name="twitter:card"/>
+ <meta content="<?php echo $SITE_TITLE; ?>" name="twitter:title"/>
+ <meta content="<?php echo $SITE_DESC; ?>" name="twitter:description"/>
+ <meta content="<?php echo getUrl_wo_params(); ?>img/newtube-cover-v1.jpg" name="twitter:image"/>
+ <meta content="@MrAdib" name="twitter:creator"/>
+ <meta content="<?php echo getUrl_wo_params(); ?>/" name="twitter:url"/>
+ <meta content="website" property="og:type"/>
+ <meta content="<?php echo $SITE_TITLE; ?>" property="og:title"/>
+ <meta content="<?php echo $SITE_DESC; ?>" property="og:description"/>
+ <meta content="<?php echo getUrl_wo_params(); ?>img/newtube-cover-v1.jpg" property="og:image"/>
+ <meta content="<?php echo getUrl_wo_params(); ?>/" property="og:url"/>
+ <meta content="جیبرس" property="og:site_name"/>
+ <meta content='fa' property='og:locale'/>
+
 
  <link href="css/tailwind-2.1.1.min.css" rel="stylesheet">
  <link href="css/video-js-7.12.1.min.css" rel="stylesheet">
