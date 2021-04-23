@@ -11,7 +11,7 @@
     else
     {
       echo "<p>downloading...</p>";
-      require "download.php";
+      require "lib/youtube-dl.php";
       download_link($_GET["import"]);
     }
 ?>

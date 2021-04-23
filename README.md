@@ -17,15 +17,15 @@ If you are use Windows, only need to add full path of repository `lib` folder to
 
 
 ### YouTube Downloader Usage
-
+Go inside lib folder then run below command
 ```
-php download.php -l LINK -l ANOTHER_LINK -l ANOTHER_ONE
+php youtube-dl.php -l LINK -l ANOTHER_LINK -l ANOTHER_ONE
 ```
 
 for example download Baby Shark Doo Doo Doo Doo Doo Doo...
 
 ```
-php download.php -l https://www.youtube.com/watch?v=XqZsoesa55w
+php youtube-dl.php -l https://www.youtube.com/watch?v=XqZsoesa55w
 ```
 
 #### issues
