@@ -10,6 +10,15 @@ function check_pre_define_tags($_string)
 	  'CoComelon',
 		'Johny',
 		'Song',
+		'Papa',
+		'Kids',
+		'Halloween',
+		'Children',
+		'Nursery',
+		'Witch',
+		'MrBean',
+		'Rain',
+		'ABC',
 	];
 
 	$detected_tags = [];
