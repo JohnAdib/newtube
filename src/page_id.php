@@ -40,11 +40,12 @@
 	<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2">
 <?php
 $maxRand = count($MOVIES);
-if($maxRand > 6)
+if($maxRand > 7)
 {
-	$maxRand = 6;
+	$maxRand = 7;
 }
 shuffle($MOVIES);
+$showCount = 0;
 for ($i=0; $i < $maxRand; $i++)
 {
 	$recommend = array_pop($MOVIES);
@@ -52,12 +53,16 @@ for ($i=0; $i < $maxRand; $i++)
 	{
 		continue;
 	}
-	echo '    ';
-	echo '<div class="mb-1 md:mb-2">';
-	echo '<a href="'. createUrl_id($recommend['id']) .'" id=recommendNext'. $i. '>';
-	echo '<img class="rounded-lg" alt="cover" src="'. $recommend['poster'] .'">';
-	echo '</a>';
-	echo '</div>';
+	if($showCount < 6)
+	{
+		echo '    ';
+		echo '<div class="mb-1 md:mb-2">';
+		echo '<a href="'. createUrl_id($recommend['id']) .'" id=recommendNext'. $i. '>';
+		echo '<img class="rounded-lg" alt="cover" src="'. $recommend['poster'] .'">';
+		echo '</a>';
+		echo '</div>';
+	}
+	$showCount++;
 }
 
 ?>
