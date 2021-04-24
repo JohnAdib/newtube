@@ -29,7 +29,8 @@ if (document.getElementById("newtube-player"))
 		var seperateAudio = document.getElementById("newtube-audio");
 		if(seperateAudio)
 		{
-			seperateAudio.stop();
+			seperateAudio.pause();
+			// seperateAudio.stop();
 		}
 
 		var NextVid = document.getElementById("recommendNext0");
